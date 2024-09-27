@@ -9,11 +9,9 @@ export interface StarshipProps {
 }
 
 export function Starship({ starship }: StarshipProps) {
-  console.log("rendering starship", starship.name);
+  // INIT state
+  // return (<div>This is starship component</div>)
 
   // Task 1: Solution
   return <div>{starship.name}</div>;
-
-  // INIT state
-  // return (<div>This is starship component</div>)
 }

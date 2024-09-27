@@ -13,7 +13,6 @@ const starships = [
 
 export function Fleet() {
   // Task 1: Render all starships
-
   return (
     <>
       {/*INIT state*/}
@@ -25,9 +24,6 @@ export function Fleet() {
           <Starship key={starship.id} starship={starship} />
         ))}
       </div>
-
-      {/*Task 2 Solution:*/}
-      <select>{}</select>
     </>
   );
 }
