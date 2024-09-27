@@ -1,6 +1,7 @@
 import { Starship } from "./Starship.tsx";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
+// TODO: Task 2: Use this starship list
 const starships = [
   { id: 1, name: "Star Explorer", type: "Explorer" },
   { id: 2, name: "Galaxy Cruiser", type: "Cruiser" },
@@ -14,44 +15,18 @@ const starships = [
 
 export function Fleet() {
   // Task 2: Render select with filter of starships types
-  // const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-  //   // Task 2: Set filter value to state
-  // }
-
-  // Task 2: Solution
-  const [selectedType, setSelectedType] = useState<string>();
-  const starshipTypes = Array.from(new Set(starships.map((starship) => starship.type)));
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedType(event.target.value);
+    console.log(event);
+    // Task 2: Set filter value to state
   };
-  const filteredStarships = selectedType ? starships.filter((starship) => starship.type === selectedType) : starships;
 
   return (
     <>
-      {/*INIT state*/}
-      {/*<div>*/}
-      {/*  {starships.map(starship => (*/}
-      {/*    <Starship key={starship.id} starship={starship}/>*/}
-      {/*  ))}*/}
-      {/*  <select onChange={handleSelectChange}>*/}
-      {/*    <option value=""></option>*/}
-      {/*    {starshipTypes.map(type => (<option key={type} value={type}>{type}</option>))}*/}
-      {/*  </select>*/}
-      {/*</div>*/}
-
-      {/*Task 2 Solution:*/}
       <div>
-        <select onChange={handleSelectChange}>
-          <option value=""></option>
-          {starshipTypes.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
-        {filteredStarships.map((starship) => (
+        {starships.map((starship) => (
           <Starship key={starship.id} starship={starship} />
         ))}
+        <select onChange={handleSelectChange}></select>
       </div>
     </>
   );
